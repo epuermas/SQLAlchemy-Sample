@@ -33,8 +33,8 @@ class Post(Base):
     content = Column(String(250), nullable=False)
     comments = Column(String(250))
     likes = Column(Integer)
-    user = relationship(User)
     user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
     
 class Story(Base):
     __tablename__ = 'story'
@@ -42,6 +42,8 @@ class Story(Base):
     content = Column(String(250), nullable=False)
     user_name = Column(String(250), nullable=False)
     comments = Column(String(250))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
 class Comments(Base):
     __tablename__ = 'comments'
